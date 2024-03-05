@@ -1,7 +1,30 @@
-// Copyright 2022 UNN-CS
-#ifndef INCLUDE_CIRCLE_H_
-#define INCLUDE_CIRCLE_H_
-#include <cstdint>
+// Copyright 2024 Dmitry Vanushkin
+#pragma once
 
+#include <cmath>
 
-#endif  // INCLUDE_CIRCLE_H_
+class Circle {
+ private:
+    static const double PI;
+
+    double radius;
+
+    explicit Circle(double radius);
+
+ public:
+    static Circle CreateByRadius(double radius);
+    static Circle CreateBySquare(double square);
+    static Circle CreateByFerence(double ference);
+
+ public:
+    double GetRadius() const;
+    double GetSquare() const;
+    double GetFerence() const;
+
+    void SetRadius(double radius);
+    void SetFerence(double ference);
+    void SetSquare(double square);
+
+ private:
+    static double ValidatePositiveOrError(double value);
+};
